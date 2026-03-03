@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>直選家 | 不動產零中介買賣方交易平台</title>
+    <!-- 引入 Noto Sans TC 字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    },
+                    colors: {
+                        base: '#F8FAFC',       // 冷灰白 (整體背景 60%)
+                        surface: '#FFFFFF',    // 純白 (卡片/提亮)
+                        primary: '#0F172A',    // 海軍藍/深藍灰 (品牌主色 30%)
+                        secondary: '#64748B',  // 藍灰 (輔助內文色)
+                        accent: '#D4AF37',     // 香檳金 (強調色 10%)
+                        accentHover: '#C39F2D',// 香檳金 Hover
+                        darkBase: '#020617',   // 極深色底 (Footer/護城河區塊)
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F8FAFC;
+        }
+        /* 內斂的高級卡片懸浮效果 */
+        .premium-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(100, 116, 139, 0.1);
+        }
+        .premium-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.08);
+            border-color: rgba(212, 175, 55, 0.3); /* 懸浮時透出淡淡金色邊框 */
+        }
+        /* 極簡漸層（僅用於深色背景） */
+        .dark-gradient {
+            background: linear-gradient(145deg, #0F172A 0%, #1E293B 100%);
+        }
+    </style>
+</head>
+<body class="font-sans text-primary antialiased selection:bg-accent selection:text-white">
+
+    <!-- 導覽列 -->
+    <nav class="fixed w-full bg-base/80 backdrop-blur-lg z-50 border-b border-gray-200/60 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="flex justify-between h-24 items-center">
+                <div class="flex items-center gap-2">
+                    <span class="text-3xl font-black text-primary tracking-tight">直選家</span>
+                    <span class="w-2 h-2 rounded-full bg-accent mt-3"></span>
+                </div>
+                <div class="hidden md:flex space-x-10 items-center">
+                    <a href="#problem" class="text-sm font-medium text-secondary hover:text-primary transition-colors duration-200">市場痛點</a>
+                    <a href="#solution" class="text-sm font-medium text-secondary hover:text-primary transition-colors duration-200">核心解方</a>
+                    <a href="#business-model" class="text-sm font-medium text-secondary hover:text-primary transition-colors duration-200">商業模式</a>
+                    <a href="#financial" class="text-sm font-medium text-secondary hover:text-primary transition-colors duration-200">護城河</a>
+                    <a href="#contact" class="bg-primary text-surface px-7 py-3 rounded-sm text-sm font-medium hover:bg-primary/90 transition-all shadow-md shadow-primary/10">索取完整 BP</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首屏 (Hero Section) -->
+    <section class="relative pt-40 pb-32 lg:pt-56 lg:pb-40 overflow-hidden dark-gradient">
+        <!-- 裝飾性幾何線條 (極簡) -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 right-0 w-[800px] h-[800px] border-[1px] border-white/20 rounded-full -translate-y-1/2 translate-x-1/3"></div>
+            <div class="absolute top-0 right-0 w-[600px] h-[600px] border-[1px] border-white/10 rounded-full -translate-y-1/2 translate-x-1/4"></div>
+        </div>
+        <div class="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+            <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-surface/5 border border-surface/10 text-surface/80 backdrop-blur-md mb-10">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
+                <span class="text-xs font-bold tracking-widest uppercase">尋找早期天使投資人與種子會員</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-surface mb-8 leading-tight tracking-tight">
+                顛覆 2,700 億仲介費市場<br>
+                <span class="text-accent font-light italic">AI 驅動的不動產直售生態系</span>
+            </h1>
+            <p class="mt-6 text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-14 font-light leading-relaxed">
+                免除高額抽成。結合「C2C 智能配對訂閱制」與「C2B2C 專業顧問隨選」。<br>我們不消滅專業，我們讓知識真正變現。
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-5">
+                <a href="#contact" class="bg-accent text-primary px-9 py-4 rounded-sm font-bold text-[15px] hover:bg-accentHover transition-colors shadow-lg shadow-accent/20">
+                    成為早期投資人
+                </a>
+                <a href="#solution" class="bg-transparent text-surface border border-surface/30 px-9 py-4 rounded-sm font-medium text-[15px] hover:bg-surface/10 transition-colors backdrop-blur-sm">
+                    了解運作機制
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 市場痛點 -->
+    <section id="problem" class="py-32 bg-base">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="text-center mb-20">
+                <h2 class="text-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">The Problem</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-primary">當前市場的三大痛點</h3>
+                <p class="mt-5 text-secondary font-light">市場已進入「資訊過載」的買方市場，三方皆面臨巨大困境</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 痛點 1 -->
+                <div class="p-10 rounded-xl bg-surface premium-card">
+                    <div class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center mb-8 text-secondary">
+                        <span class="font-serif italic text-xl">01</span>
+                    </div>
+                    <h4 class="text-xl font-bold text-primary mb-4">買方的決策焦慮</h4>
+                    <p class="text-secondary leading-relaxed font-light text-[15px]">面對海量真假物件產生「選擇恐懼」，缺乏判斷合理價格與未來發展的數據能力；且買房需額外負擔 2% 仲介費，嚴重壓縮裝潢預算。</p>
+                </div>
+                <!-- 痛點 2 -->
+                <div class="p-10 rounded-xl bg-surface premium-card">
+                    <div class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center mb-8 text-secondary">
+                        <span class="font-serif italic text-xl">02</span>
+                    </div>
+                    <h4 class="text-xl font-bold text-primary mb-4">賣方的弱勢與騷擾</h4>
+                    <p class="text-secondary leading-relaxed font-light text-[15px]">房屋自售曝光度極低，常遭房仲假冒買方騷擾；若委託傳統房仲，則需被抽成高達 4% 的鉅額費用。</p>
+                </div>
+                <!-- 痛點 3 -->
+                <div class="p-10 rounded-xl bg-surface premium-card">
+                    <div class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center mb-8 text-secondary">
+                        <span class="font-serif italic text-xl">03</span>
+                    </div>
+                    <h4 class="text-xl font-bold text-primary mb-4">傳統房仲的窮忙</h4>
+                    <p class="text-secondary leading-relaxed font-light text-[15px]">淪為免費的「帶看開門員」，帶看幾十次、做足產權調查，只要最後沒成交，全部做白工零收入。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心解決方案 -->
+    <section id="solution" class="py-32 bg-surface">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="text-center mb-20">
+                <h2 class="text-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">The Solution</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-primary">四大自動化防護網</h3>
+                <p class="mt-5 text-secondary font-light max-w-2xl mx-auto">我們將複雜的房產交易，拆解為極致安全的科技模組</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+                <!-- 解方 1 -->
+                <div class="flex gap-6 items-start group">
+                    <div class="flex-shrink-0 w-14 h-14 border border-slate-200 rounded-sm flex items-center justify-center text-primary group-hover:border-accent transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-primary mb-3">AI 房產大腦</h4>
+                        <p class="text-secondary text-[15px] mb-4 font-light">取代傳統帶看推薦。輸入工作地與職涯規畫，AI 自動為您運算：</p>
+                        <ul class="text-[14px] text-secondary space-y-2 list-none">
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-accent rounded-full"></span> 帶出最適居區域推薦</li>
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-accent rounded-full"></span> 投資效益與裝修成本評估</li>
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-accent rounded-full"></span> 城市未來建設發展評估</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 解方 2 -->
+                <div class="flex gap-6 items-start group">
+                    <div class="flex-shrink-0 w-14 h-14 border border-slate-200 rounded-sm flex items-center justify-center text-primary group-hover:border-accent transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-primary mb-3">雙向智能配對 & 防炒房</h4>
+                        <p class="text-secondary text-[15px] mb-4 font-light">杜絕盲目搜尋與天價釣魚：</p>
+                        <ul class="text-[14px] text-secondary space-y-3 list-none">
+                            <li class="flex items-start gap-2"><span class="w-1 h-1 bg-accent rounded-full mt-2 flex-shrink-0"></span> <span><strong class="text-primary font-medium">【買方專屬】</strong>設定條件並核實財力後，新案上架第一時間自動推播，及時聯繫屋主看屋。</span></li>
+                            <li class="flex items-start gap-2"><span class="w-1 h-1 bg-accent rounded-full mt-2 flex-shrink-0"></span> <span><strong class="text-primary font-medium">【賣方專屬】</strong>內建「乖離率定價引擎」，開價越符合實登，曝光權重越高；開天價則被降級，把流量留給誠意買賣雙方。</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 解方 3 -->
+                <div class="flex gap-6 items-start group">
+                    <div class="flex-shrink-0 w-14 h-14 border border-slate-200 rounded-sm flex items-center justify-center text-primary group-hover:border-accent transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-primary mb-3">政府 API 產權把關</h4>
+                        <p class="text-secondary text-[15px] mb-4 font-light">建立極致安全的信任護城河：</p>
+                        <ul class="text-[14px] text-secondary space-y-2 list-none">
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-accent rounded-full"></span> 全站強制 Authme eKYC 實名制。</li>
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-accent rounded-full"></span> 屋主上架必須透過「行動自然人憑證」或「MyData」。</li>
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-accent rounded-full"></span> 直接串接 Hinet 地政 API，秒速核實第一類謄本，徹底杜絕假物件。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 解方 4 -->
+                <div class="flex gap-6 items-start group">
+                    <div class="flex-shrink-0 w-14 h-14 border border-slate-200 rounded-sm flex items-center justify-center text-primary group-hover:border-accent transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-primary mb-3">高階顧問隨選系統</h4>
+                        <p class="text-secondary text-[15px] mb-4 font-light">保留真人專業，但改變收費模式：</p>
+                        <ul class="text-[14px] text-secondary space-y-2 list-none">
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-accent rounded-full"></span> 單次付費（如：$50,000/次）聘請持照高階房仲或地政士。</li>
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-accent rounded-full"></span> 處理實地屋況診斷、深度產權報告、出面議價談判。</li>
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-accent rounded-full"></span> 讓房仲從「業務員」升級為「專業顧問」，知識直接變現。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 商業模式與財務預估 -->
+    <section id="business-model" class="py-32 bg-base border-t border-slate-200/50">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="text-center mb-20">
+                <h2 class="text-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">Revenue Model</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-primary">多重穩定獲利引擎</h3>
+                <p class="mt-5 text-secondary font-light max-w-2xl mx-auto">不收動輒數十上百萬的 6% 成交佣金，採用 SaaS 訂閱與 Marketplace 抽成模型</p>
+            </div>
+
+            <!-- 訂閱制價格表 (重構層次) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24 max-w-5xl mx-auto items-end">
+                <!-- 方案 1 -->
+                <div class="bg-surface border border-slate-200 rounded-sm p-10 hover:border-slate-300 transition h-[90%]">
+                    <h4 class="text-[13px] font-bold text-secondary uppercase tracking-widest mb-4">一年期</h4>
+                    <div class="flex items-baseline gap-1 mb-8">
+                        <span class="text-3xl font-bold text-primary">$3,880</span>
+                        <span class="text-sm text-slate-400 font-light">/ 月</span>
+                    </div>
+                    <ul class="space-y-4 text-[14px] text-secondary font-light mb-8">
+                        <li class="flex items-start gap-3"><svg class="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> AI 房產大腦配對機制</li>
+                        <li class="flex items-start gap-3"><svg class="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 產權驗證與推播功能</li>
+                    </ul>
+                </div>
+                <!-- 方案 2 (主推) -->
+                <div class="bg-primary border border-primary rounded-sm p-10 shadow-2xl relative h-full">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-accent text-primary px-4 py-1 rounded-sm text-[11px] font-bold tracking-widest uppercase">
+                        Most Popular
+                    </div>
+                    <h4 class="text-[13px] font-bold text-slate-400 uppercase tracking-widest mb-4">兩年期</h4>
+                    <div class="flex items-baseline gap-1 mb-8">
+                        <span class="text-4xl font-bold text-surface">$3,280</span>
+                        <span class="text-sm text-slate-400 font-light">/ 月</span>
+                    </div>
+                    <ul class="space-y-4 text-[14px] text-slate-300 font-light mb-8 border-t border-slate-700 pt-6">
+                        <li class="flex items-start gap-3"><svg class="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 包含一年期所有功能</li>
+                        <li class="flex items-start gap-3"><svg class="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> <span class="text-surface font-medium">優先媒合推播權重</span></li>
+                    </ul>
+                </div>
+                <!-- 方案 3 -->
+                <div class="bg-surface border border-slate-200 rounded-sm p-10 hover:border-slate-300 transition h-[90%]">
+                    <h4 class="text-[13px] font-bold text-secondary uppercase tracking-widest mb-4">三年期</h4>
+                    <div class="flex items-baseline gap-1 mb-8">
+                        <span class="text-3xl font-bold text-primary">$2,880</span>
+                        <span class="text-sm text-slate-400 font-light">/ 月</span>
+                    </div>
+                    <ul class="space-y-4 text-[14px] text-secondary font-light mb-8">
+                        <li class="flex items-start gap-3"><svg class="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 包含所有功能</li>
+                        <li class="flex items-start gap-3"><svg class="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 顧問費專屬折扣優惠</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 其他營收與財務預估 (純淨線框感) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="border border-slate-200 rounded-sm p-10 bg-surface">
+                    <h4 class="text-lg font-bold text-primary mb-6">平台 B2B 加值服務</h4>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="text-accent text-xl mt-1 font-serif">A.</div>
+                            <div>
+                                <span class="font-bold text-primary block mb-1 text-[15px]">C2B2C 顧問媒合抽成</span>
+                                <span class="text-[14px] text-secondary font-light leading-relaxed">平台從每一筆「顧問隨選服務費（如 5 萬元）」中，抽取固定比例之平台服務費。</span>
+                            </div>
+                        </div>
+                        <div class="h-px w-full bg-slate-100"></div>
+                        <div class="flex gap-4">
+                            <div class="text-accent text-xl mt-1 font-serif">B.</div>
+                            <div>
+                                <span class="font-bold text-primary block mb-1 text-[15px]">交易護航加值服務 (B2B)</span>
+                                <span class="text-[14px] text-secondary font-light leading-relaxed">平台一站式串接「銀行履約保證專戶」，並提供特約代書、驗屋團隊派件，收取合理系統串接與媒合費用。</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 損益兩平點卡片 -->
+                <div class="dark-gradient rounded-sm p-10 text-surface flex flex-col justify-center relative overflow-hidden">
+                    <div class="absolute right-0 top-0 w-48 h-48 bg-accent/10 rounded-full blur-[60px]"></div>
+                    <span class="text-[11px] font-bold tracking-widest text-accent uppercase block mb-3">Break-even Projection</span>
+                    <h4 class="text-2xl font-bold mb-6">低門檻的損益兩平點</h4>
+                    <p class="text-slate-300 text-[15px] font-light leading-relaxed mb-8">
+                        以極輕資產模式營運，初期預估僅需累積少量的活躍付費訂閱用戶，單月即可達成現金流轉正。在台灣每年龐大的房市基數下，目標極易達成。
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                            <div class="bg-accent h-1.5 rounded-full w-1/5"></div>
+                        </div>
+                        <span class="text-xs text-slate-400 whitespace-nowrap">早期階段</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 護城河與藍圖 (暗黑沉穩區塊) -->
+    <section id="financial" class="py-32 bg-darkBase text-surface">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-start">
+                
+                <div class="lg:col-span-7">
+                    <h2 class="text-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">Unfair Advantage</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold mb-10">為什麼是現在？</h3>
+                    <div class="space-y-10">
+                        <div class="border-l border-accent/30 pl-6 hover:border-accent transition-colors duration-300">
+                            <h4 class="text-lg font-bold mb-3 text-slate-100">市場時機成熟</h4>
+                            <p class="text-slate-400 text-[15px] font-light leading-relaxed">誠如業界最新趨勢分析，2026 年房仲業面臨大洗牌，客戶需要的不再是「資訊提供者」，而是「資產顧問」。我們的平台正是這場產業革命的終極載體。</p>
+                        </div>
+                        <div class="border-l border-accent/30 pl-6 hover:border-accent transition-colors duration-300">
+                            <h4 class="text-lg font-bold mb-3 text-slate-100">絕對的法律護城河</h4>
+                            <p class="text-slate-400 text-[15px] font-light leading-relaxed">本平台已具備「不動產經紀業特許執照」與經紀人資格。我們將金流委外、並設立經紀人合約審核節點，完全合法合規，這是其他純資訊平台無法跨越的壁壘。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 發展藍圖 -->
+                <div class="lg:col-span-5 border border-slate-800 bg-[#0A0F1C] p-10 rounded-sm">
+                    <h3 class="text-xl font-bold mb-10 tracking-wide text-slate-200">Roadmap 發展藍圖</h3>
+                    
+                    <div class="relative border-l border-slate-700 ml-2 space-y-10">
+                        <div class="pl-8 relative">
+                            <div class="absolute w-2 h-2 bg-accent rounded-full -left-[4.5px] top-1.5 shadow-[0_0_8px_rgba(212,175,55,0.8)]"></div>
+                            <span class="text-[10px] font-bold text-accent uppercase tracking-widest block mb-1">Phase 1</span>
+                            <h4 class="font-medium text-[15px] text-slate-200 mb-2">MVP 上線與冷啟動</h4>
+                            <p class="text-[13px] text-slate-500 font-light">完善 AI 房產大腦、政府產權 API 串接與訂閱制金流。啟動「早期種子會員」招募，累積首批真實屋主與買方。</p>
+                        </div>
+                        <div class="pl-8 relative">
+                            <div class="absolute w-2 h-2 bg-slate-600 rounded-full -left-[4.5px] top-1.5"></div>
+                            <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-1">Phase 2</span>
+                            <h4 class="font-medium text-[15px] text-slate-300 mb-2">顧問生態系引入</h4>
+                            <p class="text-[13px] text-slate-500 font-light">開放頂尖房仲/代書註冊，正式啟用「顧問隨選單次付費」系統，驗證 C2B2C 商業模式。</p>
+                        </div>
+                        <div class="pl-8 relative">
+                            <div class="absolute w-2 h-2 bg-slate-600 rounded-full -left-[4.5px] top-1.5"></div>
+                            <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-1">Phase 3</span>
+                            <h4 class="font-medium text-[15px] text-slate-300 mb-2">全鏈條整合</h4>
+                            <p class="text-[13px] text-slate-500 font-light">深度整合線上意向書、電子簽約與履約保證自動化，完成 0 房仲交易的最後一哩路。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 投資與合作呼籲 -->
+    <section id="contact" class="py-32 bg-surface text-center">
+        <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+            <h2 class="text-3xl md:text-5xl font-bold text-primary mb-6 tracking-tight">仲介時代即將結束<br><span class="text-secondary font-light">0 中介費的智能時代已經到來</span></h2>
+            <p class="text-[15px] text-secondary font-light mb-16">平台目前正處於系統開發與上線前的黃金期。我們正在尋找：</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-16 text-left">
+                <div class="border-t border-slate-200 pt-6">
+                    <span class="text-accent text-sm font-bold tracking-widest block mb-2">01.</span>
+                    <h4 class="font-bold text-primary mb-2">早期天使投資人</h4>
+                    <p class="text-[13px] text-secondary font-light">認同此破壞式創新模式，提供初期營運與行銷資金。</p>
+                </div>
+                <div class="border-t border-slate-200 pt-6">
+                    <span class="text-accent text-sm font-bold tracking-widest block mb-2">02.</span>
+                    <h4 class="font-bold text-primary mb-2">早期創始會員</h4>
+                    <p class="text-[13px] text-secondary font-light">願意搶先體驗 AI 配對、免仲介費的買方與屋主（享終生福利）。</p>
+                </div>
+                <div class="border-t border-slate-200 pt-6">
+                    <span class="text-accent text-sm font-bold tracking-widest block mb-2">03.</span>
+                    <h4 class="font-bold text-primary mb-2">頂尖房產顧問</h4>
+                    <p class="text-[13px] text-secondary font-light">具備強大實力的房仲、代書，搶先預約成為首批認證顧問。</p>
+                </div>
+            </div>
+
+            <button class="bg-primary text-surface px-10 py-4 rounded-sm font-medium text-[15px] hover:bg-primary/90 transition-colors shadow-lg shadow-primary/10">
+                聯繫我們，共同見證歷史變革
+            </button>
+        </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer class="bg-darkBase border-t border-slate-800 py-12 text-center text-slate-500 font-light text-[13px]">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="mb-2">&copy; 2026 直選家 DirectHome. All rights reserved.</p>
+            <p class="opacity-60 tracking-wider">合法立案不動產經紀業 | 顛覆性 PropTech 新創</p>
+        </div>
+    </footer>
+
+    <!-- 簡單的導覽列滾動效果 -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-sm');
+                nav.classList.remove('bg-base/80');
+                nav.classList.add('bg-surface/95');
+            } else {
+                nav.classList.remove('shadow-sm');
+                nav.classList.add('bg-base/80');
+                nav.classList.remove('bg-surface/95');
+            }
+        });
+    </script>
+</body>
+</html>
